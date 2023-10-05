@@ -3,6 +3,7 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
+import logging
 
 """
 # Welcome to Streamlit!
@@ -15,6 +16,7 @@ forums](https://discuss.streamlit.io).
 In the meantime, below is an example of what you can do with just a few lines of code:
 """
 
+logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
 
 with st.echo(code_location='below'):
     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
@@ -26,7 +28,7 @@ with st.echo(code_location='below'):
 
     points_per_turn = total_points / num_turns
 
-    print(f"Going to create plot with {total_points} points")
+    logging.info(f"Going to create plot with {total_points} points")
 
     for curr_point_num in range(total_points):
         curr_turn, i = divmod(curr_point_num, points_per_turn)

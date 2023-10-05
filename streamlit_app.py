@@ -26,6 +26,8 @@ with st.echo(code_location='below'):
 
     points_per_turn = total_points / num_turns
 
+    print(f"Going to create plot with {total_points} points")
+
     for curr_point_num in range(total_points):
         curr_turn, i = divmod(curr_point_num, points_per_turn)
         angle = (curr_turn + 1) * 2 * math.pi * i / points_per_turn
